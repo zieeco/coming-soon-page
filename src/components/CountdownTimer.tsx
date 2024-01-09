@@ -2,11 +2,11 @@
 import { useEffect, useState } from 'react';
 
 interface CountdownTimerProps {
-  targetDate: Date;
+  initialTargetDate: Date;
 }
 
-const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
-  const calculateTimeLeft = (): { days: number; hours: number; minutes: number; seconds: number } => {
+const CountdownTimer: React.FC<CountdownTimerProps> = ({ initialTargetDate }) => {
+  const calculateTimeLeft = (targetDate: Date): { days: number; hours: number; minutes: number; seconds: number; } => {
     const now = new Date();
     const difference = targetDate.getTime() - now.getTime();
 
@@ -27,19 +27,34 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
     };
   };
 
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft);
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(initialTargetDate));
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimeLeft(calculateTimeLeft);
+      setTimeLeft(calculateTimeLeft(initialTargetDate));
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [targetDate]);
+  }, [initialTargetDate]);
 
   return (
-    <div>
-      <p>{`${timeLeft.days} days ${timeLeft.hours} hours ${timeLeft.minutes} minutes ${timeLeft.seconds} seconds`}</p>
+    <div className="flex justify-center items-center flex-wrap gap-4 my-8">
+      <div className="all-font flex flex-col items-center">
+        <p className="font-semibold md:font-extrabold md:text-5xl ">{timeLeft.days}</p>
+        <p className="text-xs uppercase font-bold">Days</p>
+      </div>
+      <div className="all-font flex flex-col items-center">
+        <p className="font-semibold md:font-extrabold md:text-5xl ">{timeLeft.hours}</p>
+        <p className="text-xs uppercase font-bold">Hours</p>
+      </div>
+      <div className="all-font flex flex-col items-center">
+        <p className="font-semibold md:font-extrabold md:text-5xl">{timeLeft.minutes}</p>
+        <p className="text-xs uppercase font-bold">Minutes</p>
+      </div>
+      <div className="all-font flex flex-col items-center">
+        <p className="font-semibold md:font-extrabold md:text-5xl">{timeLeft.seconds}</p>
+        <p className="text-xs uppercase font-bold">Seconds</p>
+      </div>
     </div>
   );
 };
