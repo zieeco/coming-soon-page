@@ -16,8 +16,8 @@ const MainContent: React.FC = () => {
         const response = await axios.get('/api/countdownEndTime');
         const newTargetDate = new Date(response.data.targetDate);
         setInitialTargetDate(newTargetDate);
-      } catch (error: any) {
-        console.error('Error fetching target date:', error.message);
+      } catch (error) {
+        throw error;
       }
     };
 
@@ -33,11 +33,10 @@ const MainContent: React.FC = () => {
         alert('Subscription successful!');
       } else {
         setIsSubscribed(false);
-        alert('Subscription failed');
+        // alert('Subscription failed');
       }
-    } catch (error: any) {
-      console.error('Error subscribing:', error.message);
-      alert('Subscription failed. Please try again.');
+    } catch (error) {
+      throw error;
     }
   };
 
