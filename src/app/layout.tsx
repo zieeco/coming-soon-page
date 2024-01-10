@@ -12,7 +12,7 @@ interface Props {
 
 const RootLayout = ({children}: Props) => (
   <html lang="en">
-    <body className="bg-gradient-to-r from-gray-300 to-[#e8e8ea]">{children}</body>
+    <body className="">{children}</body>
   </html>
 )
 
