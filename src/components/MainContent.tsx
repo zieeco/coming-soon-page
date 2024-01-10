@@ -10,6 +10,7 @@ const MainContent: React.FC = () => {
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [initialTargetDate, setInitialTargetDate] = useState<Date | null>(null);
   const [subscriptionMessage, setSubscriptionMessage] = useState<string | null>(null);
+  const [fetchError, setFetchError] = useState<string | null>(null)
 
   useEffect(() => {
     const fetchTargetDate = async () => {
@@ -18,6 +19,7 @@ const MainContent: React.FC = () => {
         const newTargetDate = new Date(response.data.targetDate);
         setInitialTargetDate(newTargetDate);
       } catch (error) {
+        setFetchError('Error fetching target date. Please, try again!')
         throw error;
       }
     };
@@ -42,8 +44,7 @@ const MainContent: React.FC = () => {
         setIsSubscribed(false);
         setSubscriptionMessage('Subscription failed');
       }
-    } catch (error: any) {
-      console.error('Error subscribing:', error.message);
+    } catch (error) {
       setSubscriptionMessage('Subscription failed. Please try again.');
       throw error;
     }
@@ -56,6 +57,8 @@ const MainContent: React.FC = () => {
           <h1 className="all-font font-bold uppercase md:text-3xl">This website is under construction!</h1>
           {/* <h4 className="all-font uppercase">We will be live in:</h4> */}
         </div>
+
+        {fetchError && <p className="text-red-500">{fetchError}</p> }
 
         {subscriptionMessage && (
           <p className={`text ${isSubscribed ? 'text-green-500' : 'tex-red-500'}`}>{subscriptionMessage}</p>
