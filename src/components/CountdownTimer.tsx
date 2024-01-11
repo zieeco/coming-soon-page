@@ -40,20 +40,20 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ initialTargetDate }) =>
   return (
     <div className="flex justify-center items-center flex-wrap gap-4 my-8">
       <div className="all-font flex flex-col items-center">
-        <p className="font-semibold text-gray-500  md:font-extrabold md:text-5xl ">{timeLeft.days}</p>
-        <p className="text-xs text-gray-600  uppercase font-bold">Days</p>
+        <p className="font-semibold text-[rgb(232,232,232)]  md:font-extrabold md:text-5xl ">{timeLeft.days}</p>
+        <p className="text-xs text-white  uppercase font-bold">Days</p>
       </div>
       <div className="all-font flex flex-col items-center">
-        <p className="font-semibold text-gray-500  md:font-extrabold md:text-5xl ">{timeLeft.hours}</p>
-        <p className="text-xs text-gray-600  uppercase font-bold">Hours</p>
+        <p className="font-semibold text-[rgb(232,232,232)]  md:font-extrabold md:text-5xl ">{timeLeft.hours}</p>
+        <p className="text-xs text-white  uppercase font-bold">Hours</p>
       </div>
       <div className="all-font flex flex-col items-center">
-        <p className="font-semibold text-gray-500  md:font-extrabold md:text-5xl">{timeLeft.minutes}</p>
-        <p className="text-xs text-gray-600  uppercase font-bold">Minutes</p>
+        <p className="font-semibold text-[rgb(232,232,232)]  md:font-extrabold md:text-5xl">{timeLeft.minutes}</p>
+        <p className="text-xs text-white  uppercase font-bold">Minutes</p>
       </div>
       <div className="all-font flex flex-col items-center">
-        <p className="font-semibold text-gray-500  md:font-extrabold md:text-5xl">{timeLeft.seconds}</p>
-        <p className="text-xs text-gray-600  uppercase font-bold">Seconds</p>
+        <p className="font-semibold text-[rgb(232,232,232)]  md:font-extrabold md:text-5xl">{timeLeft.seconds}</p>
+        <p className="text-xs text-white  uppercase font-bold">Seconds</p>
       </div>
     </div>
   );

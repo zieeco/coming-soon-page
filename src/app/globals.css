@@ -4,8 +4,8 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 237, 236, 246;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 70, 60, 159;
+  --background-end-rgb: 70, 60, 159;
 }
 
 .all-font {
@@ -15,6 +15,7 @@
 .br {
   border-radius: 30px;
 }
+
 
 body {
   color: rgb(var(--foreground-rgb));

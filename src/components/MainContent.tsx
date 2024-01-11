@@ -70,7 +70,7 @@ const MainContent: React.FC = () => {
     <div className="w-full flex flex-col h-screen text-center p-8 bbb justify-center items-center">
       <div className="one w-full flex-col mborder items-center mx-auto  md:max-w-2xl">
         <div className="countdown-container mb-12">
-          <h1 className="all-font font-bold uppercase text-gray-400 md:text-3xl">This website is under construction!</h1>
+          <h1 className="all-font font-bold uppercase text-[rgb(232,232,232)] md:text-3xl italic">...We&rsquo;re coming soon!</h1>
           {/* <h4 className="all-font uppercase">We will be live in:</h4> */}
         </div>
 
@@ -91,11 +91,11 @@ const MainContent: React.FC = () => {
                 value={email}
                 required
                 onChange={(e) => setEmail(e.target.value)}
-                className="border br border-gray-300 p-2 w-full"
+                className="border br border-gray-300 p-2 w-full bg-[rgb(232,232,232)]"
                 placeholder="EMAIL ADDRESS"
               />
               <button type="submit"
-                className="bg-[rgb(52,4,149)] text-white px-4 py-2 hover:bg-[rgb(82,9,237)] br
+                className="bg-[rgb(68,48,157)] text-white px-4 py-2 hover:bg-[rgb(50,41,124)] br
                 mx-auto sm:mx-0"
                 disabled={isSubscribed || isLoading}>
                 {isLoading ? (
@@ -115,7 +115,7 @@ const MainContent: React.FC = () => {
         {initialTargetDate ? (
           <CountdownTimer initialTargetDate={initialTargetDate} />
         ) : (
-          <p className="w-12 h-12 my-5 rounded-full animate-spin mx-auto border-4 border-solid border-gray-500 border-t-transparent"></p>
+          <p className="w-12 h-12 my-5 rounded-full animate-spin mx-auto border-4 border-solid border-white border-t-transparent"></p>
         )}
       </div>
     </div>
