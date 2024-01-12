@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import CountdownTimer from './CountdownTimer';
 import axios, { AxiosError } from 'axios';
-// import { BASE_API_URL } from '@/utils/constants';
+import { BASE_API_URL } from '@/utils/constants';
 
 const MainContent: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -17,7 +17,7 @@ const MainContent: React.FC = () => {
   useEffect(() => {
     const fetchTargetDate = async () => {
       try {
-        const response = await axios.get('/api/countdownEndTime');
+        const response = await axios.get(`${BASE_API_URL}/api/countdownEndTime`);
         const newTargetDate = new Date(response.data.targetDate);
         setInitialTargetDate(newTargetDate);
       } catch (error) {
@@ -34,7 +34,7 @@ const MainContent: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('/api/subscribe', { email });
+      const response = await axios.post(`${BASE_API_URL}/api/subscribe`, { email });
       if (response.status === 200) {
         setIsSubscribed(true);
         setInfoMessage('Subscription successful!');
