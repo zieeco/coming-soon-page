@@ -7,7 +7,7 @@ import { BASE_API_URL } from '@/utils/constants';
 // import '../styles/reset.css';
 // import Footer from '@/components/Footer/Footer';
 
-const Home = async () =>  {
+const Home = () =>  {
   if(!BASE_API_URL) {
     return null;
   }
