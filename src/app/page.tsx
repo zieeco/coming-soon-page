@@ -1,4 +1,5 @@
 import MainContent from '@/components/MainContent';
+import { BASE_API_URL } from '@/utils/constants';
 
 //app/page.tsx
 // import '../styles/globals.css';
@@ -6,7 +7,11 @@ import MainContent from '@/components/MainContent';
 // import '../styles/reset.css';
 // import Footer from '@/components/Footer/Footer';
 
-const Home = () => {
+const Home = async () =>  {
+  if(!BASE_API_URL) {
+    return null;
+  }
+
   return (
     <main>
       <MainContent />
